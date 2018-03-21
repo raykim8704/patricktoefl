@@ -1,0 +1,38 @@
+body{font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #585f69;
+    margin-top: 5px;
+    text-shadow: none;
+    font-weight: 400;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.content-wrapper{
+
+  width: 100%;
+  height: fit-content;
+  align : center;
+
+}
+.main-text{
+	font-size : 13px;
+	margin : 0 auto;
+	padding : 10px;
+	width : 95%;
+	background-color: #EBEBEB;
+}
+.answer-title{
+	margin : 0 auto;
+	font-size: 15px;
+	padding:10px;
+	width :90%;
+	background-color:#EDEDED;
+}
+.answers{
+	margin : 0 auto;
+	font-size: 14px;
+	padding:10px;
+	width :90%;
+	background-color:#EDEDED;
+}
