@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+/Users/KwanghoonKim/Documents/patricktoefl/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2755368673.index
+2502303995.index
+4220149050.index
+1325172045.index
+1545638998.index
+3091414772.index
