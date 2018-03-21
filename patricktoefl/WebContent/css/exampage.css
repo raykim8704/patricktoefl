@@ -1,5 +1,6 @@
-body{font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
-
+body{
+	font-size:13px;
+}
 h1, h2, h3, h4, h5, h6 {
     color: #585f69;
     margin-top: 5px;
@@ -24,14 +25,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .answer-title{
 	margin : 0 auto;
-	font-size: 15px;
+	font-size: 13px;
 	padding:10px;
 	width :90%;
 	background-color:#EDEDED;
 }
 .answers{
 	margin : 0 auto;
-	font-size: 14px;
+	font-size: 13px;
 	padding:10px;
 	width :90%;
 	background-color:#EDEDED;

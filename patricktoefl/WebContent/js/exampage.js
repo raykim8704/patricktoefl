@@ -70,20 +70,26 @@ function renderQuestions(){
 			id:'answer-title-'+index+qIndex,
 			text:qValue.question
 		}));
+		$('.content-wrapper').append($('<div/>',{
+			class:'answers',
+			id:'answers'+index+qIndex
+		}));
 		
 		jQuery.each(qValue.answers,function(aIndex,aValue){
-			console.log(aValue);
-			$('.content-wrapper').append($('<label/>',{
-				class:'answers',
-				id:'answers'+index+qIndex+aIndex,
-				name:aValue
+			$('#answers'+index+qIndex).append($('<input/>',{
+				type:'radio',
+				id:'answer'+index+qIndex+aIndex,
+				name:'answer'+index+qIndex,
+				value:aIndex+1
 			}));
-		})
-		
-	
-	
-	
-	
+			$('#answers'+index+qIndex).append($('<label/>',{
+				for:'answer'+index+qIndex,
+				text:aValue
+			}));
+			$('#answers'+index+qIndex).append('<br>');
+			
+
+		});	
 	});
 	
 
