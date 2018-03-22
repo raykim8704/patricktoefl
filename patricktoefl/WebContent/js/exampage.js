@@ -82,7 +82,7 @@ function renderQuestions(){
 			class:'answers',
 			id:'answers'+index+qIndex
 		}));
-    questionCount++;
+
 
 		jQuery.each(qValue.answers,function(aIndex,aValue){
 			$('#answers'+index+qIndex).append($('<input/>',{
@@ -91,8 +91,9 @@ function renderQuestions(){
 				id:'answer'+index+qIndex+aIndex,
 				name:'answer'+index+qIndex,
 				value:aIndex+1,
-        sIndex : index,
-        qIndex : qIndex
+        textnum : index,
+        qIndex : qIndex,
+        questionNum:questionCount-1
 			}));
 			$('#answers'+index+qIndex).append($('<label/>',{
 				for:'answer'+index+qIndex,
@@ -100,29 +101,31 @@ function renderQuestions(){
 			}));
 			$('#answers'+index+qIndex).append('<br>');
 		});
+	    questionCount++;
   });
 });
 $('.selectedanswer').click(function(){
   var selectedValue = $(this).val();
-  var sIndex = $(this).attr('sIndex');
+  var textnum = $(this).attr('textnum');
   var qIndex = $(this).attr('qIndex');
+  var questionNum = $(this).attr('questionNum');
   console.log(selectedValue);
-  console.log(sIndex);
+  console.log('textNum:'+textnum);
   console.log(qIndex);
-  var result = isCorrect(qIndex,sIndex,selectedValue);
-  answerInfo[sIndex].push({
+  var result = isCorrect(textnum,qIndex,selectedValue);
+  answerInfo[questionNum]={
     'qNum':qIndex,
-    'yourChioceNum' :sIndex,
+    'yourChioceNum' :selectedValue,
     'result':result
-  });
+  };
   console.log('result:'+result);
   console.log(answerInfo);
 });
 }
 
-function isCorrect(qNum,sNum,value){
-  var cA = questionInfo[qNum].cAnswer[sNum];
-  var sA = parseInt(value);
+function isCorrect(textnum,qIndex,selectedValue){
+  var cA = questionInfo[textnum].cAnswer[qIndex];
+  var sA = parseInt(selectedValue);
   console.log(cA);
   console.log(sA);
   if(cA==sA){
