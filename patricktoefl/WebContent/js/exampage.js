@@ -1,3 +1,5 @@
+
+
 var questionInfo = [{
       text: "<p><b>In</b> an effort to improve marine environments, artificial reefs are frequently used.  These artificial reefs can be built by using manmade objects that were previously built to serve other purposes such as metal structures, decommissioned ships, and even outdated tanks. The primary goal of artificial reefs is to protect marine life by providing a shelter under the water which in turn will increase the proliferation of fish. Whether the shelters provide adequate living environments for the ailing marine life impacted by human wastes is closely observed and analyzed.</p><p> The state of Florida in the United States is home to many artificial reefs.  With the inception of the Florida Artificial Reef Program in 1982, more than 8,426 miles of coastal areas of Florida have been a part of the artificial reef development. Many of them have been implemented to boost commercial fisheries by providing an ideal habitat for valuable fishes such as groupers and snappers. Researchers currently lack information to draw a conclusion on the effects of these reefs because they are still analyzing the reef’s influence on northern red snappers in the Gulf of Mexico. The resulting population of the northern red snappers will prove to be a conclusive evidence on the efficacy of the reefs since they are relatively long-lived fish commonly found near natural and artificial reefs as they age.</p>",
       details: [
@@ -22,6 +24,7 @@ var questionInfo = [{
           answers: ["(A) mature","(B) become young","(C) generate","(D) establish","(E) change"]
         },
       ],
+      cAnswer :[3,4,2,4,1]
     },
     {
       text:"<p>The advent of the magazine can be traced back as early as the 1600’s and has been serving a crucial role in spreading information as well as new ideas ever since. At first, its very existence was considered somewhat out of place. They did not contain enough news to be considered a newspaper and they were not classified under the category of casual or fun reading. Hence, they occupied a grey area in between the two, tailoring to enthusiasts who showed interests in very specific areas. At some point in the 17th century, publishers realized that a regularly, recurring distribution was needed. This is why magazines were also referred to as periodicals.</p><p>The introduction of the Gutenberg printing press in around 1450 set the stage for an entirely new spectrum of media distribution. Now, magazines were able to be mass-produced and were readily available for the common person to read. Prior to the use of the printing press, magazines were, for the most part, available only to a select few who could afford them. Not only were they limited to a few people, but they were also made available when the select few wanted them to be available. With Gutenberg’s creation, however, newspapers and magazines began to flourish among the common people, spreading information about important events and issues.</p>" +
@@ -49,12 +52,17 @@ var questionInfo = [{
           answers: ["(A) protecting","(B) hiding","(C) referring","(D) concealing","(E) handling"]
         },
       ],
+      cAnswer :[2,3,1,2,5]
     }
 ];
+
+var answerInfo =[];
+
 
 
 
 function renderQuestions(){
+  var questionCount =1;
 
 	jQuery.each(questionInfo, function(index, value) {
 	$('.content-wrapper').append($('<div/>',{
@@ -63,37 +71,63 @@ function renderQuestions(){
 		html:value.text
 	}
 	));
-	
+
 	jQuery.each(value.details,function(qIndex,qValue){
 		$('.content-wrapper').append($('<div/>',{
 			class:'answer-title',
 			id:'answer-title-'+index+qIndex,
-			text:qValue.question
+			text:questionCount+'. '+qValue.question
 		}));
 		$('.content-wrapper').append($('<div/>',{
 			class:'answers',
 			id:'answers'+index+qIndex
 		}));
-		
+    questionCount++;
+
 		jQuery.each(qValue.answers,function(aIndex,aValue){
 			$('#answers'+index+qIndex).append($('<input/>',{
 				type:'radio',
+        class:'selectedanswer',
 				id:'answer'+index+qIndex+aIndex,
 				name:'answer'+index+qIndex,
-				value:aIndex+1
+				value:aIndex+1,
+        sIndex : index,
+        qIndex : qIndex
 			}));
 			$('#answers'+index+qIndex).append($('<label/>',{
 				for:'answer'+index+qIndex,
 				text:aValue
 			}));
 			$('#answers'+index+qIndex).append('<br>');
-			
+		});
+  });
+});
+$('.selectedanswer').click(function(){
+  var selectedValue = $(this).val();
+  var sIndex = $(this).attr('sIndex');
+  var qIndex = $(this).attr('qIndex');
+  console.log(selectedValue);
+  console.log(sIndex);
+  console.log(qIndex);
+  var result = isCorrect(qIndex,sIndex,selectedValue);
+  answerInfo[sIndex].push({
+    'qNum':qIndex,
+    'yourChioceNum' :sIndex,
+    'result':result
+  });
+  console.log('result:'+result);
+  console.log(answerInfo);
+});
+}
 
-		});	
-	});
-	
-
-
-	});
-
+function isCorrect(qNum,sNum,value){
+  var cA = questionInfo[qNum].cAnswer[sNum];
+  var sA = parseInt(value);
+  console.log(cA);
+  console.log(sA);
+  if(cA==sA){
+    return true;
+  }else{
+    return false;
+  }
 }
