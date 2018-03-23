@@ -37,3 +37,29 @@ h1, h2, h3, h4, h5, h6 {
 	width :90%;
 	background-color:#EDEDED;
 }
+.summit-button-wrapper{
+	width: 100%;
+	height:fit-content;
+
+}
+.summit-button{
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	text-align: center;
+	border: 2px solid #3f87a6;
+	margin: 15px auto;
+	font-weight: 700;
+
+}
+.result{
+	visibility: hidden;
+}
+.table-score-detail{
+	width:90%;
+	border : 1px solid #3D3D3D;
+}
+.table-score-detail td {
+		border : 1px solid #3D3D3D;
+}

@@ -57,12 +57,12 @@ var questionInfo = [{
 ];
 
 var answerInfo =[];
-
+var questionCount =1;
 
 
 
 function renderQuestions(){
-  var questionCount =1;
+
 
 	jQuery.each(questionInfo, function(index, value) {
 	$('.content-wrapper').append($('<div/>',{
@@ -121,7 +121,32 @@ $('.selectedanswer').click(function(){
   console.log('result:'+result);
   console.log(answerInfo);
 });
+
+$('.summit-button').click(function(){
+	$('.body-wapper').empty();
+	$('.body-wapper').load('contents/result.html');
+	renderResult();
+});
+
 }
+function renderResult(){
+	var numOfquestion = questionCount-1;
+	var correctCount = 0;
+	 var resultArray = answerInfo;
+	 console.log(resultArray);
+	 
+	jQuery.each(resultArray, function(index, value) {
+		if(value){
+			if(value.result){
+				correctCount++;				
+			}
+		}
+		
+	});
+	console.log("correctCount:"+correctCount);
+	
+}
+
 
 function isCorrect(textnum,qIndex,selectedValue){
   var cA = questionInfo[textnum].cAnswer[qIndex];
