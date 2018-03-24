@@ -140,6 +140,7 @@ function renderResult(){
 			if(value.result){
 				correctCount++;				
 			}
+			
 		}
 		
 	});
