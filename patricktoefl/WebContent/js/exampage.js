@@ -123,9 +123,11 @@ $('.selectedanswer').click(function(){
 });
 
 $('.summit-button').click(function(){
-	$('.body-wapper').empty();
-	$('.body-wapper').load('contents/result.html');
-	renderResult();
+
+	$('.body-wapper').load('contents/result.html',function(){
+		renderResult();
+	});
+
 });
 
 }
@@ -140,10 +142,36 @@ function renderResult(){
 			if(value.result){
 				correctCount++;				
 			}
-			
 		}
 		
 	});
+	
+	for (var i=0;i<questionCount;i++){
+		if(!resultArray[i]){
+			console.log('print');
+			 $('.score-details-wrapper').append($('<div/>',{
+					class:'score-details',
+					id:'score-details'+i
+				}));
+			 $('#score-details'+i).append($('<div/>',{
+				 class: 'score-header',
+				 text : i+1
+			 }));
+		}
+		else{
+			console.log('no answer');
+			 $('.score-details-wrapper').append($('<div/>',{
+					class:'score-details',
+					id:'score-details'+i
+				}));
+			 $('#score-details'+i).append($('<div/>',{
+				 class: 'score-header',
+				 text : i+1
+			 }));
+		}
+		
+	}
+	$('.text-score').text("You Scored sfsdfdsfdsfsd"+correctCount);
 	console.log("correctCount:"+correctCount);
 	
 }

@@ -56,10 +56,21 @@ h1, h2, h3, h4, h5, h6 {
 .result{
 	visibility: hidden;
 }
-.table-score-detail{
-	width:90%;
-	border : 1px solid #3D3D3D;
+.score-details-wrapper{
+	width:fit-contents;
+	
 }
-.table-score-detail td {
-		border : 1px solid #3D3D3D;
+.score-details{
+	width:95%;
+	height:20px;
+	
 }
+.score-header{
+	float:left;
+	width: 23%;
+	font-size:12px;
+	text-align:center;
+	border : 1px solid #3f87a6;
+}
+
+
