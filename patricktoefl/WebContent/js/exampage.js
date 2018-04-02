@@ -224,6 +224,11 @@ $('.summit-button').click(function(){
 
 	$('.body-wapper').load('contents/result.html',function(){
 		renderResult();
+		 $('.return-button').click(function(){
+			 var url = 'http://patricktoefl.com';
+			 location.replace(url);
+
+		 });
 	});
 
 });
@@ -234,6 +239,7 @@ function renderResult(){
 	var correctCount = 0;
 	 var resultArray = answerInfo;
 	 //console.log(resultArray);
+
 
 	jQuery.each(resultArray, function(index, value) {
 		if(value){

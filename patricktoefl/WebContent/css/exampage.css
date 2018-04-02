@@ -1,16 +1,38 @@
 body{
 	font-size:13px;
 }
+.header{
+	height : 100px;
+	background-color:#C73715;
+	width:100%;
+}
+.header h2 {
+	padding-left : 20px;
+	line-height : 100px;
+	vertical-align : middle;
+}
 h1, h2, h3, h4, h5, h6 {
-    color: #585f69;
+    color: #FFFFFF;
     margin-top: 5px;
     text-shadow: none;
     font-weight: 400;
     font-family: 'Open Sans',sans-serif;
 }
 .body-wapper{
+	width:65%;
+	margin: 0 auto;
+}
+@media (max-width : 1023px){
+.body-wapper{
+	width:65%;
+	margin: 0 auto;
+}
+}
+@media (max-width: 767px){
+	.body-wapper{
 	width:95%;
 	margin: 0 auto;
+}
 }
 .content-wrapper{
 
@@ -47,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 .summit-button{
-	width: 100px;
+	width: 200px;
 	height: 50px;
 	line-height: 50px;
 	vertical-align: middle;
@@ -55,7 +77,33 @@ h1, h2, h3, h4, h5, h6 {
 	border: 2px solid #3f87a6;
 	margin: 15px auto;
 	font-weight: 700;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+}
+
+.summit-button:hover {
+    transform: scale(1.1); /* (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.return-button-wrapper{
+	width: 100%;
+	height:fit-content;
+
+}
+.return-button{
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	text-align: center;
+	border: 2px solid #C73715;
+	margin: 15px auto;
+	font-weight: 700;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.return-button:hover {
+    transform: scale(1.1); /* (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 .result{
 	visibility: hidden;
@@ -83,6 +131,9 @@ h1, h2, h3, h4, h5, h6 {
 	text-align:center;
 	color: #FF0000;
 	border : 1px solid #3f87a6;
+}
+.text-direction{
+	margin-top : 20px;
 }
 .text-score{
 	font-size: 18px;
